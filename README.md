@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-# aiimage — AI Image Evidence Platform
+# AI Image Evidence — AI Image Evidence Platform
 
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Version](https://img.shields.io/badge/version-v.6.6.6.0-blue)
@@ -10,7 +10,7 @@ Versão: **v.6.6.6.0**
 
 Visão geral
 -----------
-aiimage é uma plataforma privada para ingestão, validação e armazenamento de evidências fotográficas de ordens de serviço (instalação de fibra óptica). Técnicos enviam um conjunto padronizado de fotos para comprovar chegada e conclusão do serviço. O sistema:
+AI Image Evidence é uma plataforma privada para ingestão, validação e armazenamento de evidências fotográficas de ordens de serviço (instalação de fibra óptica). Técnicos enviam um conjunto padronizado de fotos para comprovar chegada e conclusão do serviço. O sistema:
 
 - Recebe imagens (base64) e metadados EXIF.
 - Extrai e normaliza metadados (geolocalização, timestamp, device info).
