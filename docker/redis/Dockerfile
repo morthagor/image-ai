@@ -1,4 +1,4 @@
-FROM redis:7.2-alpine
+FROM redis:8.2.3-alpine
 
 # Configuração do Redis
 COPY redis.conf /usr/local/etc/redis/redis.conf
