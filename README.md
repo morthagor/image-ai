@@ -4,9 +4,9 @@
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
 ![Version](https://img.shields.io/badge/version-v.6.6.6.0-blue)
 ![Java](https://img.shields.io/badge/java-21-teal)
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.2.x-brightgreen)
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.11-brightgreen)
 
-Versão: **v.6.6.6.0**
+Versão: **v.6.6.6.1**
 
 Visão geral
 -----------
@@ -36,12 +36,12 @@ Client Apps (Mobile) --> API Gateway / Nginx --> Spring Boot API
 Tecnologias
 -----------
 - Java 21 (Temurin)
-- Spring Boot 3.2.x
-- PostgreSQL 16 (metadados)
-- MinIO (object storage para imagens)
+- Spring Boot 3.4.11
+- PostgreSQL 15.14 (metadados)
+- MinIO 8.5.7 (object storage para imagens)
 - Redis (cache)
-- Nginx (proxy/reverse)
-- SonarQube (qualidade de código)
+- Nginx 1.28.0 (proxy/reverse)
+- SonarQube 2025.5.0 (qualidade de código)
 - Docker / Docker Compose
 - Testcontainers, JUnit 5, JaCoCo
 - Flyway (migrações de BD)
