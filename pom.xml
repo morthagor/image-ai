@@ -83,6 +83,12 @@
       <artifactId>lombok</artifactId>
       <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>1.5.5.Final</version>
+      <scope>provided</scope>
+    </dependency>
     <!-- OpenAPI / Swagger UI -->
     <dependency>
       <groupId>org.springdoc</groupId>
@@ -188,11 +194,16 @@
         </executions>
       </plugin>
 
-      <!-- MapStruct annotation processor -->
+      <!-- Maven Compiler Plugin configured for Java 21 and annotation processors -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
         <configuration>
+          <source>21</source>
+          <target>21</target>
+          <release>21</release>
+          <encoding>${project.build.sourceEncoding}</encoding>
           <annotationProcessorPaths>
             <path>
               <groupId>org.projectlombok</groupId>
