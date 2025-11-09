@@ -1,31 +1,57 @@
 <!-- prettier-ignore -->
 # AI Image Evidence — AI Image Evidence Platform
 
+Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
+
 ![Status](https://img.shields.io/badge/status-active-brightgreen)
-![Version](https://img.shields.io/badge/version-v.6.6.6.0-blue)
-![Java](https://img.shields.io/badge/java-21-teal)
-![Spring Boot](https://img.shields.io/badge/spring--boot-3.2.x-brightgreen)
 
-Versão: **v.6.6.6.0**
+O formato é baseado em [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),![Version](https://img.shields.io/badge/version-v.6.6.6.0-blue)
 
-Visão geral
------------
-AI Image Evidence é uma plataforma privada para ingestão, validação e armazenamento de evidências fotográficas de ordens de serviço (instalação de fibra óptica). Técnicos enviam um conjunto padronizado de fotos para comprovar chegada e conclusão do serviço. O sistema:
+e este projeto adere ao [Semantic Versioning](https://semver.org/spec/v2.0.0.html).![Java](https://img.shields.io/badge/java-21-teal)
 
-- Recebe imagens (base64) e metadados EXIF.
-- Extrai e normaliza metadados (geolocalização, timestamp, device info).
+![Spring Boot](https://img.shields.io/badge/spring--boot-3.4.11-brightgreen)
+
+## [6.6.6.1] - 2025-11-08 01:54:37 GMT-3
+
+Versão: **v.6.6.6.1**
+
+### Atualizado
+
+- Spring Boot atualizado para 3.4.11 Visão geral
+
+- Spring Cloud atualizado para 2023.0.4 (compatibilidade com Spring Boot 3.4.11)-----------
+
+- Testcontainers atualizado para 1.19.3AI Image Evidence é uma plataforma privada para ingestão, validação e armazenamento de evidências fotográficas de ordens de serviço (instalação de fibra óptica). Técnicos enviam um conjunto padronizado de fotos para comprovar chegada e conclusão do serviço. O sistema:
+
+- PostgreSQL downgrade para 15.14 (melhor compatibilidade com Flyway)
+
+- Nginx atualizado para 1.28.0- Recebe imagens (base64) e metadados EXIF.
+
+- SonarQube atualizado para 2025.5.0-developer- Extrai e normaliza metadados (geolocalização, timestamp, device info).
+
 - Analisa qualidade e conteúdo das imagens com LLMs (Dify/Gemini) para validação automatizada.
-- Armazena metadados no PostgreSQL e imagens no MinIO com política de retenção configurável (p.ex. 5 anos — LGPD).
 
-Principais benefícios
----------------------
-- Automação da validação: redução de fraudes e retrabalho.
+### Build Details- Armazena metadados no PostgreSQL e imagens no MinIO com política de retenção configurável (p.ex. 5 anos — LGPD).
+
+- Build Timestamp: 2025-11-08 01:54:37 GMT-3
+
+- Java Version: 21.0.9Principais benefícios
+
+- Maven Version: 3.9.5---------------------
+
+- JaCoCo Version: 0.8.11- Automação da validação: redução de fraudes e retrabalho.
+
 - Arquitetura desacoplada: fácil escala e substituição de componentes (LLMs, storage).
-- Conformidade com LGPD: retenção e controle de acesso.
 
-Arquitetura (resumida)
-----------------------
-```
+### Validações- Conformidade com LGPD: retenção e controle de acesso.
+
+- ✅ Testes unitários executados com sucesso
+
+- ✅ Testes de integração executados com sucessoArquitetura (resumida)
+
+- ✅ Cobertura de código mantida acima de 80%----------------------
+
+- ✅ Build completo sem warnings```
 Client Apps (Mobile) --> API Gateway / Nginx --> Spring Boot API
 									  |-> Redis (cache)
 									  |-> Postgres (metadados)
@@ -36,12 +62,12 @@ Client Apps (Mobile) --> API Gateway / Nginx --> Spring Boot API
 Tecnologias
 -----------
 - Java 21 (Temurin)
-- Spring Boot 3.2.x
-- PostgreSQL 16 (metadados)
-- MinIO (object storage para imagens)
+- Spring Boot 3.4.11
+- PostgreSQL 15.14 (metadados)
+- MinIO 8.5.7 (object storage para imagens)
 - Redis (cache)
-- Nginx (proxy/reverse)
-- SonarQube (qualidade de código)
+- Nginx 1.28.0 (proxy/reverse)
+- SonarQube 2025.5.0 (qualidade de código)
 - Docker / Docker Compose
 - Testcontainers, JUnit 5, JaCoCo
 - Flyway (migrações de BD)

@@ -1,7 +1,4 @@
-version: '3.8'
-
-env_file:
-  - .env
+# Using Compose v2 format. 'version' field removed as it's deprecated with docker compose v2+.
 
 services:
   nginx:
@@ -21,10 +18,20 @@ services:
     build: .
     environment:
       SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+      MINIO_BUCKET: ${MINIO_BUCKET}
+      IMAGE_RETENTION_YEARS: ${IMAGE_RETENTION_YEARS}
     depends_on:
-      - postgres
-      - redis
-      - minio
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      minio:
+        condition: service_started
     networks:
       - aiimage-network
     ports:
@@ -42,6 +49,11 @@ services:
     networks:
       - aiimage-network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   redis:
     image: ${REDIS_IMAGE}
@@ -50,6 +62,11 @@ services:
     networks:
       - aiimage-network
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 
   minio:
     image: ${MINIO_IMAGE}
@@ -68,8 +85,10 @@ services:
 
   sonarqube:
     image: ${SONAR_IMAGE}
+    # Remap host port to avoid conflict with MinIO (which uses 9000/9001).
+    # Access Sonar on host port 9002 -> container port 9000
     ports:
-      - "9000:9000"
+      - "9002:9000"
     environment:
       SONAR_JDBC_URL: jdbc:postgresql://postgres:5432/sonar
       SONAR_JDBC_USERNAME: ${SONAR_JDBC_USERNAME}

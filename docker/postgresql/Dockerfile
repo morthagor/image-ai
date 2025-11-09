@@ -1,4 +1,4 @@
-FROM postgres:16.1-alpine
+FROM postgres:16.10-alpine3.22
 
 # Configurações do PostgreSQL
 ENV POSTGRES_DB=aiimage
