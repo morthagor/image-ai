@@ -19,7 +19,7 @@ Versão: **v.6.6.6.1**
 
 - Spring Boot atualizado para 3.4.11 Visão geral
 
-- Spring Cloud atualizado para 2023.0.4 (compatibilidade com Spring Boot 3.4.11)-----------
+- Spring Cloud atualizado para 2023.0.4 (compatibilidade com Spring Boot 3.4.11)
 
 - Testcontainers atualizado para 1.19.3AI Image Evidence é uma plataforma privada para ingestão, validação e armazenamento de evidências fotográficas de ordens de serviço (instalação de fibra óptica). Técnicos enviam um conjunto padronizado de fotos para comprovar chegada e conclusão do serviço. O sistema:
 
@@ -120,10 +120,6 @@ Contribuição
 ------------
 - Abra Issues para bugs/funcionalidades.
 - Submeta PRs na branch `canary` e siga o fluxo: canary -> homolog -> main.
-
-Contato
--------
-- time-tech@yourcompany.local
 
 Licença
 -------
