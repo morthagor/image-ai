@@ -1,5 +1,5 @@
 <!-- prettier-ignore -->
-# AI Image Evidence — AI Image Evidence Platform
+# AI Image Evidence Platform
 
 Todas as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
